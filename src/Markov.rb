@@ -39,7 +39,7 @@ words.each { |word|
 
 # Generate a chain
 
-max_length = 15
+max_length = 90
 
 keys = word_connections.keys
 next_word = keys[rand(keys.size)]
