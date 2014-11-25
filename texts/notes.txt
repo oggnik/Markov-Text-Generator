@@ -1,0 +1,45 @@
+DHCP
+
+TCP/IP family
+	UDP - User Datagram Protocol
+		unreliable transfer.  Applications will need to implement their own reliability if necessary
+		minimal overhead in both computation and communication
+		best for LAN applications
+		connectionless - no initial connection necessary.  No state in both ends
+		
+		Message Oriented
+		Each message encapsulated in an IP datagram
+	TCP - Transmission Control Protocol
+		major transport protocol used in the internet
+		reliable - uses acknowledgement and retransmission to accomplish reliability
+		connection-oriented - initial connection is required.  both ends keep state about the connection
+		full-duplex - communication can happen in both ways simultaneously
+		stream interface - transfer of bytes look like writing/reading to a file
+
+TCP Reliability
+	see slide
+
+TCP Summary of Features
+	1. Adaptive Retransmission
+		restransmission timer is set to RTT+4*RTTVAR where RTT is estimated.  Allows TCP work in slow and fast networks
+	2. Cumulative Acknowledgements
+		Acknowledgment is for all bytes received so far without holes and not for every packet received
+	3. Fast retransmission
+		heuristic where a duplicated acknowledgment for the same sequence is signal of a packet lost.  Data is retransmitted before timer expires
+	
+	6. Reliable Connection and Shutdown
+		TCP uses a three way handshake to open and close connections
+
+
+When to use UDP or TCP
+	reliable communication - tcp
+	only use udp in following cases:
+		broadcasting: computer needs to reach all or part of the computers in local network
+			multicasting data to serveral machines simultaneously
+		real time data: applications where packets arriving on time with minimum delay is more important than reliability where retransmission can add to the delay
+
+NAT: Network Address Translation
+	used when you want to connect multiple computers to internet using a single IP address
+	NAT software can run on a computer or specialized device (NAT box) that has two network interfaces: one connected to the private network and the other one to the internet
+	
+	NAT box is also a DHCP server that assigns IP addresses and it is the default router
